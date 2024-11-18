@@ -28,8 +28,6 @@
             </div>
         </div>
     </section>
-
-   
     <?php include 'templates/footer.html'; ?>
 
 </body>

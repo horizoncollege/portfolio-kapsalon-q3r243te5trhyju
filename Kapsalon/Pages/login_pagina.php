@@ -21,10 +21,16 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="wachtwoord">Wachtwoord:</label>
+                    <label for="wachtwoord">Wachtwoord:</label>
+                    <div class="input-group">
                         <input type="password" class="form-control" id="wachtwoord" name="wachtwoord" required>
-                        <div id="passwordError" class="text-danger d-none"></div> <!-- Specifieke foutmelding voor wachtwoord -->
+                        <button type="button" class="btn btn-outline-secondary border" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
                     </div>
+                    <div id="passwordError" class="text-danger d-none"></div> 
+                </div>
+
 
                     <button type="submit" class="btn btn-dark w-100">Inloggen</button>
                 </form>
@@ -33,5 +39,5 @@
     </div>
 
     <?php include 'templates/footer.html'; ?>
-    <script src="../Javascript/error_messages.js"></script>
-
+</body>
+</html>

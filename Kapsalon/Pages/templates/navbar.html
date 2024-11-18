@@ -1,23 +1,22 @@
+<?php
+session_start();
+?>
 <div class="container border-bottom border-white">
-    <nav class="navbar navbar-expand-lg navbar-light mt-2">
+    <nav class="navbar navbar-expand-lg p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Merknaam -->
             <a href="./home.php" class="navbar-brand">
                 <h1 class="fw-bold text-dark">LORE</h1>
             </a>
 
-            <!-- Login knop en Cart -->
-            <div class="d-flex align-items-center order-lg-2 mx-auto">
-                <?php if (isset($_SESSION["gebruikersnaam"])): ?>
-                    <a href="profiel_pagina.php" class="nav-link fw-bold text-dark mx-3 d-none d-lg-inline">
-                        Welkom, <?php echo htmlspecialchars($_SESSION["gebruikersnaam"]); ?>
-                    </a>
-                    <a href="login/logout.php" class="nav-link fw-bold text-dark mx-3 d-none d-lg-inline">LOGOUT</a>
+            <!-- Login/Logout Button and Cart Icon (visible on mobile) -->
+            <div class="d-flex d-lg-none align-items-center justify-content-end flex-grow-1">
+                <?php if (!isset($_SESSION["gebruikersnaam"])): ?>
+                    <a href="./login_pagina.php" class="btn btn-dark rounded-pill px-4 py-2 text-white ms-3">LOGIN</a>
                 <?php else: ?>
-                    <a href="login_pagina.php" class="btn btn-dark rounded-pill px-4 py-2 text-white mx-3">LOGIN</a>
+                    <a href="./profile.php" class="btn btn-dark rounded-pill px-4 py-2 text-white ms-3"><?php echo htmlspecialchars($_SESSION["gebruikersnaam"]); ?></a>
                 <?php endif; ?>
-
-                <a href="cart.php" class="cart-icon mx-2" style="width: 50px; height: 50px;">
+                <a href="cart.php" class="cart-icon mx-2 ms-3" style="width: 50px; height: 50px;">
                     <i class="bi bi-cart2"></i>
                 </a>
             </div>
@@ -28,8 +27,8 @@
             </button>
 
             <!-- Navigatie -->
-            <div class="collapse navbar-collapse justify-content-end order-lg-1" id="navmenu">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse justify-content-end order-lg-1 mt-lg-0 mt-4" id="navmenu">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item mx-3">
                         <a href="" class="nav-link fw-bold text-dark">PRODUCTEN</a>
                     </li>
@@ -42,9 +41,27 @@
                     <li class="nav-item mx-3">
                         <a href="" class="nav-link fw-bold text-dark">CONTACT</a>
                     </li>
+                    <!-- Login/Logout -->
+                    <?php if (isset($_SESSION["gebruikersnaam"])): ?>
+                        <li class="nav-item mx-3 d-none d-lg-block">
+                            <a href="./login_pagina.php" class="btn btn-dark rounded-pill px-4 py-2 text-white"><?php echo htmlspecialchars($_SESSION["gebruikersnaam"]); ?></a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="./login/logout.php" class="nav-link fw-bold text-dark">LOGOUT</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item mx-3 d-none d-lg-block">
+                            <a href="./login_pagina.php" class="btn btn-dark rounded-pill px-4 py-2 text-white">LOGIN</a>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Cart Icon (visible on desktop) -->
+                    <li class="nav-item mx-3 d-none d-lg-block">
+                        <a href="cart.php" class="cart-icon" style="width: 50px; height: 50px;">
+                            <i class="bi bi-cart2"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-<div class="bg-green" style="height: 2px;"></div>

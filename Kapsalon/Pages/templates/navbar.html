@@ -43,6 +43,9 @@ session_start();
                     </li>
                     <!-- Login/Logout -->
                     <?php if (isset($_SESSION["gebruikersnaam"])): ?>
+                        <li class="nav-item mx-3">
+                            <a href="./dasboard.php" class="nav-link fw-bold text-dark">DASHBOARD</a>
+                        </li>
                         <li class="nav-item mx-3 d-none d-lg-block">
                             <a href="./login_pagina.php" class="btn btn-dark rounded-pill px-4 py-2 text-white"><?php echo htmlspecialchars($_SESSION["gebruikersnaam"]); ?></a>
                         </li>
